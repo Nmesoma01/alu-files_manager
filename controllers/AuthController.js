@@ -7,9 +7,7 @@ export default class AuthController {
   static async getConnect(req, res) {
     try {
       const base64Credentials = req.headers.authorization.split(' ')[1];
-      const credentials = Buffer.from(base64Credentials, 'base64').toString(
-        'ascii'
-      );
+      const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
       console.log(credentials);
       const [email, password] = credentials.split(':');
       console.log(email, password);
@@ -22,9 +20,7 @@ export default class AuthController {
         return res.status(401).json({ error: 'Unauthorized' });
       }
       console.log('I got here');
-      const isRightPassword =
-        crypto.createHash('sha1').update(password).digest('hex') ===
-        user.password;
+      const isRightPassword = crypto.createHash('sha1').update(password).digest('hex') === user.password;
       if (!isRightPassword) {
         return res.status(401).json({ error: 'Unauthorized' });
       }
