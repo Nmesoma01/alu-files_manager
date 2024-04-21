@@ -1,5 +1,5 @@
-const { v4: uuidv4 } = require("uuid");
-const { redisClient } = require("../utils/redis"); // Assuming redisClient is defined there
+import { v4 as uuidv4 } from "uuid";
+import { redisClient } from "../utils/redis"; // Assuming redisClient is defined there
 
 class AuthController {
   static async getConnect(req, res) {
@@ -44,4 +44,4 @@ class AuthController {
   }
 }
 
-module.exports = AuthController;
+export default AuthController;
