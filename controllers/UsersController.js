@@ -50,7 +50,7 @@ export default class UsersController {
     });
     console.log(user);
     if (!user) {
-      return res.status(401).json({ error: 'Unauthorized" });
+      return res.status(401).json({ error: 'Unauthorized' });
     }
     return res.status(200).json({ id: userId, email: user.email });
   }
